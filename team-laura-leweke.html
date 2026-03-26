@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Laura Leweke – SCHNEIDER || MICK Rechtsanwälte</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0B1F3A;--navy-deep:#060F1D;--blue:#1E3D6E;--accent:#C4A35A;--accent-light:#E8D5A3;--white:#FFFFFF;--off-white:#F7F8FA;--gray:#9CA3AF;--text:#0B1F3A;--text-light:#5A6478;--font-serif:'Cormorant Garamond',Georgia,serif;--font-sans:'Inter',-apple-system,sans-serif;--transition:0.3s cubic-bezier(0.4,0,0.2,1);--container:1320px;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+::selection{background:var(--navy);color:var(--white);}
+html{scroll-behavior:smooth;font-size:16px;}
+body{font-family:var(--font-sans);color:var(--text);background:var(--white);line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+img{max-width:100%;height:auto;display:block;}
+a{text-decoration:none;color:inherit;transition:color var(--transition);}
+.container{max-width:var(--container);margin:0 auto;padding:0 48px;}
+#header{position:fixed;top:0;left:0;right:0;z-index:1000;transition:all .35s cubic-bezier(.4,0,.2,1);}
+.header-inner{display:flex;align-items:center;justify-content:space-between;padding:22px 48px;transition:padding .35s ease;}
+#header.scrolled{background:var(--white);box-shadow:0 1px 0 rgba(0,0,0,.07),0 4px 32px rgba(0,0,0,.06);}
+#header.scrolled .header-inner{padding:14px 48px;}
+.logo img{height:42px;width:auto;filter:brightness(0) invert(1);transition:filter .35s ease;}
+#header.scrolled .logo img{filter:none;}
+.nav{display:flex;align-items:center;}
+.nav-item{position:relative;}
+.nav-link{display:flex;align-items:center;gap:5px;padding:8px 16px;font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.9);transition:color var(--transition);white-space:nowrap;cursor:pointer;}
+.nav-link:hover{color:#fff;}
+#header.scrolled .nav-link{color:var(--navy);}
+#header.scrolled .nav-link:hover{color:#1E3D6E;}
+.chev{width:9px;height:9px;opacity:.65;transition:transform .25s ease;}
+.nav-item:hover .chev{transform:rotate(180deg);}
+.dropdown{position:absolute;top:100%;left:50%;transform:translateX(-50%) translateY(-6px);min-width:230px;background:var(--white);border-top:2px solid var(--accent);box-shadow:0 24px 64px rgba(11,31,58,.13);opacity:0;visibility:hidden;transition:all .25s cubic-bezier(.4,0,.2,1);pointer-events:none;margin-top:8px;}
+.dropdown::before{content:'';position:absolute;top:-18px;left:0;right:0;height:18px;}
+.nav-item:hover .dropdown{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0);pointer-events:all;}
+.dropdown a{display:block;padding:11px 22px;font-size:12.5px;font-weight:400;color:var(--navy);letter-spacing:.02em;border-bottom:1px solid rgba(0,0,0,.04);transition:all var(--transition);}
+.dropdown a:last-child{border-bottom:none;}
+.dropdown a:hover{background:var(--off-white);color:#2A5298;padding-left:30px;}
+.header-cta{padding:9px 22px;font-size:11.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.9);border:1px solid rgba(255,255,255,.35);transition:all var(--transition);white-space:nowrap;margin-left:12px;}
+.header-cta:hover{background:var(--white);color:var(--navy);}
+#header.scrolled .header-cta{color:var(--navy);border-color:rgba(11,31,58,.3);}
+#header.scrolled .header-cta:hover{background:var(--navy);color:var(--white);}
+#header{background:var(--white);box-shadow:0 1px 0 rgba(0,0,0,.07),0 4px 32px rgba(0,0,0,.06);}
+.header-inner{padding:14px 48px;}
+.logo img{filter:none;}
+.nav-link{color:var(--navy);}
+.nav-link:hover{color:#1E3D6E;}
+.header-cta{color:var(--navy);border-color:rgba(11,31,58,.3);}
+.header-cta:hover{background:var(--navy);color:var(--white);}
+.prof-hero{display:grid;grid-template-columns:42% 58%;margin-top:78px;height:calc(100vh - 78px);min-height:680px;}
+.prof-photo{position:relative;overflow:hidden;}
+.prof-photo img{width:100%;height:100%;object-fit:cover;object-position:center top;}
+.prof-photo-overlay{position:absolute;inset:0;background:linear-gradient(to right,transparent 60%,rgba(11,31,58,.25) 100%);}
+.prof-intro{background:var(--navy);display:flex;align-items:center;padding:0 80px;position:relative;}
+.prof-intro::before{content:'';position:absolute;left:0;top:15%;bottom:15%;width:1px;background:linear-gradient(to bottom,transparent,var(--accent),transparent);}
+.prof-intro-inner{max-width:480px;}
+.prof-eyebrow{font-size:9px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:var(--accent);margin-bottom:16px;}
+.prof-name{font-family:var(--font-serif);font-size:clamp(34px,4vw,58px);font-weight:300;color:var(--white);line-height:1.07;margin-bottom:8px;}
+.prof-role{font-family:var(--font-serif);font-size:14px;font-style:italic;color:rgba(255,255,255,.58);margin-bottom:4px;}
+.prof-role2{font-size:11px;font-weight:400;letter-spacing:.06em;color:rgba(255,255,255,.36);margin-bottom:28px;}
+.prof-divider{width:40px;height:1px;background:linear-gradient(90deg,var(--accent),transparent);margin-bottom:28px;}
+.prof-meta{display:flex;flex-direction:column;gap:10px;margin-bottom:36px;}
+.prof-meta-item{display:flex;align-items:center;gap:12px;font-size:12px;color:rgba(255,255,255,.6);font-weight:300;}
+.prof-meta-item a{color:rgba(255,255,255,.6);}
+.prof-meta-item a:hover{color:var(--accent);}
+.prof-meta-icon{width:13px;height:13px;flex-shrink:0;color:var(--accent);}
+.prof-anchors{display:flex;gap:20px;flex-wrap:wrap;}
+.prof-anchor{font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.36);padding-bottom:4px;border-bottom:1px solid transparent;transition:color .2s,border-color .2s;}
+.prof-anchor:hover{color:var(--accent);border-color:rgba(196,163,90,.4);}
+.prof-quote-section{background:var(--off-white);padding:64px 0;border-bottom:1px solid rgba(0,0,0,.06);}
+.prof-quote-inner{max-width:800px;margin:0 auto;text-align:center;padding:0 48px;}
+.prof-quote-mark{font-family:var(--font-serif);font-size:72px;line-height:.5;color:var(--accent);opacity:.35;display:block;margin-bottom:24px;}
+.prof-quote-text{font-family:var(--font-serif);font-size:clamp(17px,2vw,22px);font-weight:300;font-style:italic;color:var(--navy);line-height:1.65;}
+.prof-content-section{padding:80px 0 100px;background:var(--white);}
+.prof-layout{display:grid;grid-template-columns:280px 1fr;gap:80px;align-items:start;}
+.prof-sidebar{position:sticky;top:96px;}
+.prof-sb-block{margin-bottom:32px;padding-bottom:32px;border-bottom:1px solid rgba(0,0,0,.07);}
+.prof-sb-block:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0;}
+.prof-sb-title{font-size:8.5px;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--accent);margin-bottom:16px;}
+.prof-sb-list{list-style:none;display:flex;flex-direction:column;gap:9px;}
+.prof-sb-list li{font-size:13px;color:var(--text-light);font-weight:300;line-height:1.5;padding-left:14px;position:relative;}
+.prof-sb-list li::before{content:'';position:absolute;left:0;top:9px;width:5px;height:1px;background:var(--accent);}
+.prof-sb-contact-item{font-size:12.5px;color:var(--text-light);font-weight:300;margin-bottom:8px;line-height:1.5;}
+.prof-sb-contact-item a{color:var(--navy);}
+.prof-sb-contact-item a:hover{color:var(--accent);}
+.prof-main{display:flex;flex-direction:column;gap:56px;}
+.prof-section{border-top:1px solid rgba(0,0,0,.07);padding-top:40px;}
+.prof-section-title{font-family:var(--font-serif);font-size:clamp(18px,1.8vw,26px);font-weight:300;color:var(--navy);margin-bottom:28px;display:flex;align-items:center;gap:16px;}
+.prof-section-title::before{content:'';width:24px;height:1px;background:var(--accent);flex-shrink:0;}
+.prof-timeline{display:flex;flex-direction:column;}
+.prof-tl-item{display:grid;grid-template-columns:110px 1fr;gap:24px;padding:14px 0;border-bottom:1px solid rgba(0,0,0,.05);}
+.prof-tl-item:last-child{border-bottom:none;}
+.prof-tl-year{font-family:var(--font-serif);font-size:12px;color:var(--accent);padding-top:2px;white-space:nowrap;line-height:1.6;}
+.prof-tl-text{font-size:14px;color:var(--text-light);font-weight:300;line-height:1.75;}
+.prof-awards{display:flex;flex-direction:column;gap:12px;}
+.prof-award-item{display:flex;gap:14px;align-items:flex-start;padding:16px;border:1px solid rgba(0,0,0,.07);}
+.prof-award-dot{width:6px;height:6px;border-radius:50%;background:var(--accent);flex-shrink:0;margin-top:5px;}
+.prof-award-text{font-size:13.5px;color:var(--text-light);font-weight:300;line-height:1.6;}
+.prof-award-source{font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);display:block;margin-top:4px;font-weight:600;}
+.prof-back{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--text-light);margin-bottom:48px;transition:color .2s;}
+.prof-back:hover{color:var(--navy);}
+.prof-back svg{width:13px;height:13px;transition:transform .2s;}
+.prof-back:hover svg{transform:translateX(-3px);}
+.prof-specialties{margin-top:28px;padding-top:24px;border-top:1px solid rgba(255,255,255,.07);}
+.prof-spec-label{font-size:8px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.28);margin-bottom:14px;}
+.prof-spec-item{font-size:12.5px;font-weight:300;color:rgba(255,255,255,.48);padding:6px 0 6px 18px;position:relative;line-height:1.45;border-bottom:1px solid rgba(255,255,255,.04);}
+.prof-spec-item:last-child{border-bottom:none;}
+.prof-spec-item::before{content:'';position:absolute;left:0;top:13px;width:7px;height:1px;background:var(--accent);}
+</style>
+</head>
+<body>
+
+<header id="header">
+  <div class="header-inner">
+    <a href="index.html" class="logo">
+      <img src="SMRS-Langlogo-transparent.png" alt="SCHNEIDER || MICK Rechtsanwälte">
+    </a>
+    <nav class="nav">
+      <div class="nav-item"><a class="nav-link" href="ueber-uns.html">Kanzlei</a></div>
+      <div class="nav-item">
+        <span class="nav-link">Rechtsanwälte <svg class="chev" viewBox="0 0 10 10" fill="none"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></span>
+        <div class="dropdown">
+          <a href="team-dr-frederic-schneider.html">Dr. Frédéric Schneider</a>
+          <a href="team-dr-benedikt-mick.html">Dr. Benedikt Mick</a>
+          <a href="team-laura-leweke.html">Laura Leweke</a>
+          <a href="team-michael-eggers.html">Michael Eggers</a>
+          <a href="team-silvia-uschinski.html">Silvia Uschinski</a>
+          <a href="team-dr-sebastian-seel.html">Dr. Sebastian Seel</a>
+          <a href="team-laura-bessenbach.html">Laura Bessenbach</a>
+          <a href="team-nicola-bier.html">Nicola Bier</a>
+          <a href="team-hannah-hellmig.html">Hannah Hellmig</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <span class="nav-link">Schwerpunkte <svg class="chev" viewBox="0 0 10 10" fill="none"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></span>
+        <div class="dropdown">
+          <a href="medienstrafrecht.html">Medienstrafrecht</a>
+          <a href="persoenlichkeitsstrafrecht.html">Persönlichkeitsrecht</a>
+        </div>
+      </div>
+      <div class="nav-item"><a class="nav-link" href="beitraege.html">Beiträge</a></div>
+      <div class="nav-item"><a class="nav-link" href="kontakt.html">Kontakt</a></div>
+    </nav>
+    <a href="kontakt.html" class="header-cta">Beratungsgespräch</a>
+  </div>
+</header>
+
+<section class="prof-hero">
+  <div class="prof-photo">
+    <img src="Profil Laura Leweke Rechtsanwaeltin und Partnerin Schneider Mick Rechtsanwälte Fachanwaeltin fuer Strafrecht in Berlin und Hamburg und Bundesweit.jpg" alt="Laura Leweke">
+    <div class="prof-photo-overlay"></div>
+  </div>
+  <div class="prof-intro">
+    <div class="prof-intro-inner">
+      <div class="prof-eyebrow">Partnerin</div>
+      <h1 class="prof-name">Laura<br>Leweke</h1>
+      <p class="prof-role">Fachanwältin für Strafrecht</p>
+      <p class="prof-role2">Zert. Beraterin für Wirtschaftsstrafrecht (DAA)</p>
+      <div class="prof-divider"></div>
+      <div class="prof-meta">
+        <div class="prof-meta-item">
+          <svg class="prof-meta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+          <a href="mailto:leweke@schneidermick.de">leweke@schneidermick.de</a>
+        </div>
+        <div class="prof-meta-item">
+          <svg class="prof-meta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+          <span>040 – 2286 2287</span>
+        </div>
+        <div class="prof-meta-item">
+          <svg class="prof-meta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          <span>Hamburg</span>
+        </div>
+      </div>
+      <div class="prof-anchors">
+        <a href="#schwerpunkte" class="prof-anchor">Schwerpunkte</a>
+        <a href="#werdegang" class="prof-anchor">Werdegang</a>
+        <a href="#auszeichnungen" class="prof-anchor">Auszeichnungen</a>
+      </div>
+      <div class="prof-specialties">
+  <div class="prof-spec-label">Tätigkeitsschwerpunkte</div>
+  <div class="prof-spec-item">Wirtschaftsstrafrecht</div>
+  <div class="prof-spec-item">Arzt- &amp; Medizinstrafrecht</div>
+  <div class="prof-spec-item">Korruptionsstrafrecht</div>
+  <div class="prof-spec-item">Steuerstrafrecht</div>
+</div>
+    </div>
+  </div>
+</section>
+
+<section class="prof-quote-section">
+  <div class="prof-quote-inner">
+    <span class="prof-quote-mark">"</span>
+    <p class="prof-quote-text">Mit juristischer Präzision, strategischem Denken und dem notwendigen Fingerspitzengefühl für die Interessen meiner Mandant:innen.</p>
+  </div>
+</section>
+
+<section class="prof-content-section">
+  <div class="container">
+    <a href="index.html#team" class="prof-back">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+      Zurück zum Team
+    </a>
+    <div class="prof-layout">
+      <aside class="prof-sidebar">
+        <div class="prof-sb-block" id="schwerpunkte">
+          <div class="prof-sb-title">Tätigkeitsschwerpunkte</div>
+          <ul class="prof-sb-list">
+            <li>Wirtschaftsstrafrecht</li>
+            <li>Arzt- und Medizinstrafrecht</li>
+            <li>Korruptionsstrafrecht</li>
+            <li>Steuerstrafrecht</li>
+          </ul>
+        </div>
+        <div class="prof-sb-block">
+          <div class="prof-sb-title">Mitgliedschaften</div>
+          <ul class="prof-sb-list">
+            <li>Hamburgischer Anwaltverein (HAV)</li>
+            <li>AG Strafrecht im DAV</li>
+            <li>Forum JUST</li>
+            <li>Hamburger Arbeitsgemeinschaft Strafverteidigerinnen</li>
+            <li>WisteV</li>
+            <li>JuWiSt</li>
+            <li>Hanseatische Rechtsanwaltskammer Hamburg</li>
+          </ul>
+        </div>
+        <div class="prof-sb-block">
+          <div class="prof-sb-title">Sprachen</div>
+          <ul class="prof-sb-list">
+            <li>Englisch (fließend)</li>
+            <li>Französisch (Grundkenntnisse)</li>
+          </ul>
+        </div>
+        <div class="prof-sb-block">
+          <div class="prof-sb-title">Kontakt</div>
+          <div class="prof-sb-contact-item"><a href="mailto:leweke@schneidermick.de">leweke@schneidermick.de</a></div>
+          <div class="prof-sb-contact-item">040 – 2286 2287</div>
+          <div class="prof-sb-contact-item">Holstenwall 10, 20355 Hamburg</div>
+        </div>
+      </aside>
+
+      <main class="prof-main">
+        <div class="prof-section" id="werdegang">
+          <h2 class="prof-section-title">Werdegang</h2>
+          <div class="prof-timeline">
+            <div class="prof-tl-item">
+              <div class="prof-tl-year">Ab 2012</div>
+              <div class="prof-tl-text">Rechtswissenschaft an der Universität Hamburg, Schwerpunkt Kriminalität und Kriminalitätskontrolle</div>
+            </div>
+            <div class="prof-tl-item">
+              <div class="prof-tl-year">2018</div>
+              <div class="prof-tl-text">Lehrauftrag im Strafrecht an der Universität Hamburg</div>
+            </div>
+            <div class="prof-tl-item">
+              <div class="prof-tl-year">Referendariat</div>
+              <div class="prof-tl-text">Stationen u.a. bei der Wirtschaftsabteilung der Hamburger Staatsanwaltschaft, JVA Fuhlsbüttel, Auswärtiges Amt, IRMCT Den Haag</div>
+            </div>
+            <div class="prof-tl-item">
+              <div class="prof-tl-year">2020 – 2021</div>
+              <div class="prof-tl-text">Wissenschaftliche Mitarbeiterin bei ROXIN Rechtsanwälte</div>
+            </div>
+            <div class="prof-tl-item">
+              <div class="prof-tl-year">2021 – 2023</div>
+              <div class="prof-tl-text">Angestellte Rechtsanwältin bei LAUDON || SCHNEIDER Rechtsanwälte</div>
+            </div>
+            <div class="prof-tl-item">
+              <div class="prof-tl-year">Seit 2021</div>
+              <div class="prof-tl-text">Lehrbeauftragte an der Universität Hamburg: „Praxis der Strafverteidigung"</div>
+            </div>
+            <div class="prof-tl-item">
+              <div class="prof-tl-year">2023</div>
+              <div class="prof-tl-text">Erwerb Fachanwältin für Strafrecht</div>
+            </div>
+            <div class="prof-tl-item">
+              <div class="prof-tl-year">2024</div>
+              <div class="prof-tl-text">Zertifikat als Beraterin für Wirtschaftsstrafrecht (Deutsche Anwaltsakademie)</div>
+            </div>
+            <div class="prof-tl-item">
+              <div class="prof-tl-year">Mai 2025</div>
+              <div class="prof-tl-text">Beförderung zur Partnerin bei SCHNEIDER || MICK Rechtsanwälte</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="prof-section" id="auszeichnungen">
+          <h2 class="prof-section-title">Auszeichnungen</h2>
+          <div class="prof-awards">
+            <div class="prof-award-item">
+              <div class="prof-award-dot"></div>
+              <div>
+                <div class="prof-award-text">Anwältin der Zukunft (Wirtschaftsstrafrecht und Steuerstrafrecht)</div>
+                <span class="prof-award-source">Handelsblatt / Best Lawyers</span>
+              </div>
+            </div>
+            <div class="prof-award-item">
+              <div class="prof-award-dot"></div>
+              <div>
+                <div class="prof-award-text">TOP Anwalt 2026</div>
+                <span class="prof-award-source">F.A.Z. Institut</span>
+              </div>
+            </div>
+            <div class="prof-award-item">
+              <div class="prof-award-dot"></div>
+              <div>
+                <div class="prof-award-text">Besonders empfohlene Anwältin für Wirtschaftsstrafrecht sowie für Privatpersonen im Strafrecht</div>
+                <span class="prof-award-source">WirtschaftsWoche</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+</section>
+
+<footer id="footer" style="background:#0B1F3A;">
+  <div style="height:1px;background:linear-gradient(90deg,#C4A35A,rgba(196,163,90,.25) 55%,transparent);"></div>
+  <div style="max-width:1320px;margin:0 auto;padding:0 48px;">
+    <div style="display:grid;grid-template-columns:280px 1fr;gap:80px;padding:64px 0 56px;border-bottom:1px solid rgba(255,255,255,.08);">
+      <div>
+        <a href="index.html"><img src="SMRS-Langlogo-transparent.png" style="height:58px;filter:brightness(0) invert(1);opacity:.85;" alt="SCHNEIDER MICK"></a>
+        <p style="font-family:'Cormorant Garamond',serif;font-size:14px;font-style:italic;color:rgba(255,255,255,.48);margin-top:16px;line-height:1.9;">Spezialisierte Strafverteidigung im Medienstrafrecht und Persönlichkeitsrecht. Bundesweit tätig. Hamburg &amp; Berlin.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:36px;">
+        <div><h4 style="font-size:9.5px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:18px;">Kanzlei</h4><a href="index.html#kanzlei" style="display:block;font-size:13.5px;color:rgba(255,255,255,.65);margin-bottom:12px;text-decoration:none;font-weight:300;">Über uns</a><a href="index.html#team" style="display:block;font-size:13.5px;color:rgba(255,255,255,.65);margin-bottom:12px;text-decoration:none;font-weight:300;">Das Team</a><a href="index.html#kontakt" style="display:block;font-size:13.5px;color:rgba(255,255,255,.65);margin-bottom:12px;text-decoration:none;font-weight:300;">Kontakt</a></div>
+        <div><h4 style="font-size:9.5px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:18px;">Rechtsgebiete</h4><a href="medienstrafrecht.html" style="display:block;font-size:13.5px;color:rgba(255,255,255,.65);margin-bottom:12px;text-decoration:none;font-weight:300;">Medienstrafrecht</a><a href="medienstrafrecht.html" style="display:block;font-size:13.5px;color:rgba(255,255,255,.65);margin-bottom:12px;text-decoration:none;font-weight:300;">Pressestrafrecht</a><a href="medienstrafrecht.html" style="display:block;font-size:13.5px;color:rgba(255,255,255,.65);margin-bottom:12px;text-decoration:none;font-weight:300;">Internetstrafrecht</a></div>
+        <div><h4 style="font-size:9.5px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:18px;">Schwerpunkte</h4><a href="persoenlichkeitsstrafrecht.html" style="display:block;font-size:13.5px;color:rgba(255,255,255,.65);margin-bottom:12px;text-decoration:none;font-weight:300;">Persönlichkeitsrecht</a><a href="medienstrafrecht.html" style="display:block;font-size:13.5px;color:rgba(255,255,255,.65);margin-bottom:12px;text-decoration:none;font-weight:300;">Medienstrafrecht</a></div>
+        <div><h4 style="font-size:9.5px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:18px;">Erreichbarkeit</h4><a href="#" style="display:block;font-size:13.5px;color:rgba(255,255,255,.65);margin-bottom:12px;text-decoration:none;font-weight:300;">Mo – Fr, 8:30 – 20:00 Uhr</a><a href="#" style="display:block;font-size:13.5px;color:rgba(255,255,255,.65);margin-bottom:12px;text-decoration:none;font-weight:300;">Notfall: 24 / 7</a></div>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1px 1fr;align-items:center;padding:40px 0;border-bottom:1px solid rgba(255,255,255,.08);">
+      <div style="padding-right:48px;display:flex;justify-content:space-between;align-items:center;"><div><div style="font-size:9px;font-weight:600;letter-spacing:.28em;text-transform:uppercase;color:#C4A35A;margin-bottom:10px;">Hamburg</div><div style="font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:300;color:rgba(255,255,255,.88);">Holstenwall 10, 20355 Hamburg</div><div style="font-size:13px;color:rgba(255,255,255,.58);margin-top:7px;">040 – 2286 2287</div></div></div>
+      <div style="height:56px;background:rgba(255,255,255,.1);"></div>
+      <div style="padding-left:48px;display:flex;justify-content:space-between;align-items:center;"><div><div style="font-size:9px;font-weight:600;letter-spacing:.28em;text-transform:uppercase;color:#C4A35A;margin-bottom:10px;">Berlin</div><div style="font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:300;color:rgba(255,255,255,.88);">Fasanenstraße 72, 10719 Berlin</div><div style="font-size:13px;color:rgba(255,255,255,.58);margin-top:7px;">030 – 120 88 380</div></div></div>
+    </div>
+    <div style="display:flex;justify-content:space-between;align-items:center;padding:20px 0;">
+      <p style="font-size:11.5px;color:rgba(255,255,255,.32);font-weight:300;">© 2026 SCHNEIDER || MICK Rechtsanwälte Strafverteidiger PartmbB. Alle Rechte vorbehalten.</p>
+      <div style="display:flex;gap:28px;"><a href="#" style="font-size:11.5px;color:rgba(255,255,255,.42);text-decoration:none;">Impressum</a><a href="#" style="font-size:11.5px;color:rgba(255,255,255,.42);text-decoration:none;">Datenschutz</a><a href="#" style="font-size:11.5px;color:rgba(255,255,255,.42);text-decoration:none;">AGB</a></div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
