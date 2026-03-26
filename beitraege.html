@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Beiträge & Publikationen – SCHNEIDER || MICK Rechtsanwälte</title>
+<meta name="description" content="Beiträge, Analysen und Publikationen von SCHNEIDER || MICK zu Medienstrafrecht, Persönlichkeitsstrafrecht, digitaler Reputation und strafrechtlicher Krisenintervention.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0B1F3A;--navy-deep:#060F1D;--navy-light:#1A3A5C;--blue:#1E3D6E;--blue-mid:#2A5298;
+  --accent:#C4A35A;--accent-light:#E8D5A3;--white:#FFFFFF;--off-white:#F7F8FA;
+  --gray-light:#EEF0F4;--gray:#9CA3AF;--gray-dark:#4B5563;
+  --text:#0B1F3A;--text-light:#5A6478;
+  --font-serif:'Cormorant Garamond',Georgia,serif;--font-sans:'Inter',-apple-system,sans-serif;
+  --transition:0.3s cubic-bezier(0.4,0,0.2,1);--container:1320px;--sp:100px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+::selection{background:var(--navy);color:var(--white);}
+html{scroll-behavior:smooth;}
+body{font-family:var(--font-sans);color:var(--text);background:var(--white);line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+img{max-width:100%;height:auto;display:block;}
+a{text-decoration:none;color:inherit;transition:color var(--transition);}
+ul{list-style:none;}
+.container{max-width:var(--container);margin:0 auto;padding:0 48px;}
+
+#header{position:fixed;top:0;left:0;right:0;z-index:1000;transition:all .35s cubic-bezier(.4,0,.2,1);}
+.header-inner{display:flex;align-items:center;justify-content:space-between;padding:22px 48px;transition:padding .35s ease;}
+#header.scrolled{background:var(--white);box-shadow:0 1px 0 rgba(0,0,0,.07),0 4px 32px rgba(0,0,0,.06);}
+#header.scrolled .header-inner{padding:14px 48px;}
+.logo img{height:42px;width:auto;filter:brightness(0) invert(1);transition:filter .35s ease;}
+#header.scrolled .logo img{filter:none;}
+.nav{display:flex;align-items:center;}
+.nav-item{position:relative;}
+.nav-link{display:flex;align-items:center;gap:5px;padding:8px 16px;font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.9);transition:color var(--transition);white-space:nowrap;cursor:pointer;}
+.nav-link:hover{color:#fff;}
+#header.scrolled .nav-link{color:var(--navy);}
+#header.scrolled .nav-link:hover{color:var(--blue-mid);}
+.chev{width:9px;height:9px;opacity:.65;transition:transform .25s ease;}
+.nav-item:hover .chev{transform:rotate(180deg);}
+.dropdown{position:absolute;top:100%;left:50%;transform:translateX(-50%) translateY(-6px);min-width:230px;background:var(--white);border-top:2px solid var(--accent);box-shadow:0 24px 64px rgba(11,31,58,.13);opacity:0;visibility:hidden;transition:all .25s cubic-bezier(.4,0,.2,1);pointer-events:none;margin-top:8px;}
+.dropdown::before{content:'';position:absolute;top:-18px;left:0;right:0;height:18px;}
+.nav-item:hover .dropdown{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0);pointer-events:all;}
+.dropdown a{display:block;padding:11px 22px;font-size:12.5px;font-weight:400;color:var(--navy);letter-spacing:.02em;border-bottom:1px solid rgba(0,0,0,.04);transition:all var(--transition);}
+.dropdown a:last-child{border-bottom:none;}
+.dropdown a:hover{background:var(--off-white);color:var(--blue-mid);padding-left:30px;}
+.header-cta{padding:9px 22px;font-size:11.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.9);border:1px solid rgba(255,255,255,.35);transition:all var(--transition);white-space:nowrap;margin-left:12px;}
+.header-cta:hover{background:var(--white);color:var(--navy);}
+#header.scrolled .header-cta{color:var(--navy);border-color:rgba(11,31,58,.3);}
+#header.scrolled .header-cta:hover{background:var(--navy);color:var(--white);}
+
+.page-hero{position:relative;height:66vh;min-height:500px;display:flex;align-items:flex-end;overflow:hidden;background:var(--navy);}
+.page-hero-media{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+.page-hero-overlay{position:absolute;inset:0;background:linear-gradient(118deg,rgba(11,31,58,.92) 0%,rgba(11,31,58,.62) 58%,rgba(11,31,58,.2) 100%);}
+.page-hero-content{position:relative;z-index:1;max-width:720px;padding:0 48px 82px 72px;}
+.page-hero-kicker{display:flex;align-items:center;gap:14px;margin-bottom:28px;}
+.page-hero-kicker-line{width:32px;height:1px;background:var(--accent);}
+.page-hero-kicker-text{font-size:9.5px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:var(--accent);}
+.page-hero-title{font-family:var(--font-serif);font-size:clamp(40px,4.8vw,70px);font-weight:300;line-height:1.02;color:var(--white);margin-bottom:14px;}
+.page-hero-sub{max-width:560px;font-size:13px;font-weight:300;letter-spacing:.01em;text-transform:none;line-height:1.7;color:rgba(255,255,255,.74);}
+.page-hero-bc{display:flex;align-items:center;gap:8px;font-size:9.5px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.32);margin-top:24px;}
+.page-hero-bc a:hover{color:var(--accent);}
+
+.section-label{display:flex;align-items:center;gap:14px;margin-bottom:20px;}
+.section-label-line{width:24px;height:1px;background:var(--accent);}
+.section-label-text{font-size:9.5px;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--accent);}
+
+.journal-intro{padding:84px 0 40px;background:var(--white);}
+.journal-intro-grid{display:grid;grid-template-columns:minmax(0,1fr) 360px;gap:72px;align-items:start;}
+.journal-intro-title{font-family:var(--font-serif);font-size:clamp(30px,3.7vw,50px);font-weight:300;color:var(--navy);line-height:1.08;max-width:760px;}
+.journal-intro-copy{max-width:700px;margin-top:22px;}
+.journal-intro-copy p{font-size:14px;color:var(--text-light);line-height:1.9;font-weight:300;}
+.journal-intro-copy p + p{margin-top:14px;}
+.journal-tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px;}
+.journal-tag{display:inline-flex;align-items:center;padding:9px 14px;border:1px solid rgba(11,31,58,.1);font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--navy);}
+.journal-side{padding-top:24px;border-top:1px solid rgba(196,163,90,.42);}
+.journal-side-label{display:block;font-size:8.5px;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--accent);margin-bottom:14px;}
+.journal-side p{font-size:13px;color:var(--text-light);line-height:1.85;font-weight:300;}
+
+.feature-section{padding:0 0 72px;background:var(--white);}
+.feature-grid{display:grid;grid-template-columns:minmax(0,1.08fr) 340px;gap:34px;align-items:start;}
+.feature-card{display:grid;grid-template-columns:minmax(0,.98fr) minmax(0,1.02fr);border:1px solid rgba(11,31,58,.08);background:var(--white);}
+.feature-image img{width:100%;height:100%;min-height:440px;object-fit:cover;object-position:center;}
+.feature-body{padding:40px 38px 34px;}
+.post-topline{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:18px;}
+.post-cat{font-size:9px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--accent);}
+.post-type{font-size:10px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:rgba(11,31,58,.42);}
+.feature-title{font-family:var(--font-serif);font-size:clamp(30px,3.3vw,44px);font-weight:300;color:var(--navy);line-height:1.06;max-width:520px;margin-bottom:18px;}
+.feature-excerpt{font-size:14px;color:var(--text-light);line-height:1.9;font-weight:300;max-width:520px;}
+.feature-meta{display:flex;gap:22px;flex-wrap:wrap;margin-top:26px;padding-top:18px;border-top:1px solid rgba(11,31,58,.08);}
+.feature-meta span{font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(11,31,58,.48);}
+.feature-aside{padding:10px 0 0;}
+.feature-aside-list{display:grid;gap:18px;}
+.feature-aside-item{padding:0 0 18px;border-bottom:1px solid rgba(11,31,58,.08);}
+.feature-aside-item:last-child{border-bottom:none;padding-bottom:0;}
+.feature-aside-item .post-cat{display:block;margin-bottom:10px;}
+.feature-aside-item h3{font-family:var(--font-serif);font-size:28px;font-weight:300;color:var(--navy);line-height:1.1;margin-bottom:10px;}
+.feature-aside-item p{font-size:13px;color:var(--text-light);line-height:1.8;font-weight:300;}
+
+.posts-section{padding:0 0 78px;background:var(--white);}
+.posts-head{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;margin-bottom:38px;}
+.posts-head h2{font-family:var(--font-serif);font-size:clamp(28px,3vw,44px);font-weight:300;color:var(--navy);}
+.posts-head p{max-width:460px;font-size:14px;color:var(--text-light);line-height:1.8;font-weight:300;}
+.posts-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+.post-card{display:flex;flex-direction:column;border:1px solid rgba(11,31,58,.08);background:var(--white);min-height:100%;transition:transform .35s ease,box-shadow .35s ease,border-color .35s ease;}
+.post-card:hover{transform:translateY(-4px);box-shadow:0 18px 36px rgba(11,31,58,.07);border-color:rgba(11,31,58,.12);}
+.post-card-image img{width:100%;aspect-ratio:4/3;object-fit:cover;object-position:center;}
+.post-card-body{display:flex;flex-direction:column;flex:1;padding:28px 26px 24px;}
+.post-card h3{font-family:var(--font-serif);font-size:30px;font-weight:300;color:var(--navy);line-height:1.1;margin-bottom:14px;}
+.post-card p{font-size:13px;color:var(--text-light);line-height:1.85;font-weight:300;}
+.post-card-meta{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-top:auto;padding-top:18px;border-top:1px solid rgba(11,31,58,.08);}
+.post-card-meta span{font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(11,31,58,.46);}
+
+.journal-links{padding:0 0 var(--sp);background:var(--white);}
+.journal-links-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+.journal-link-card{display:flex;flex-direction:column;justify-content:space-between;min-height:188px;padding:28px 26px;border:1px solid rgba(11,31,58,.08);background:var(--white);transition:transform .35s ease,box-shadow .35s ease,border-color .35s ease;}
+.journal-link-card:hover{transform:translateY(-4px);box-shadow:0 18px 36px rgba(11,31,58,.06);border-color:rgba(11,31,58,.12);}
+.journal-link-card h3{font-family:var(--font-serif);font-size:30px;font-weight:300;color:var(--navy);line-height:1.08;margin-bottom:10px;}
+.journal-link-card p{font-size:13px;color:var(--text-light);line-height:1.8;font-weight:300;max-width:280px;}
+.journal-link-cta{display:inline-flex;align-items:center;gap:8px;margin-top:24px;font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--navy);}
+.journal-link-cta svg{width:13px;height:13px;transition:transform .25s ease;}
+.journal-link-card:hover .journal-link-cta svg{transform:translateX(3px);}
+
+#footer{background:var(--navy);}
+.ft-accent-bar{height:1px;background:linear-gradient(90deg,var(--accent) 0%,rgba(196,163,90,.25) 55%,transparent 100%);}
+.ft-top{display:grid;grid-template-columns:280px 1fr;gap:80px;padding:64px 0 56px;border-bottom:1px solid rgba(255,255,255,.08);}
+.ft-brand .logo img{filter:brightness(0) invert(1);height:58px;opacity:.85;}
+.ft-tagline{font-family:var(--font-serif);font-size:14px;font-style:italic;color:rgba(255,255,255,.48);margin-top:16px;line-height:1.9;}
+.ft-nav-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:36px;}
+.ft-col h4{font-size:9.5px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:18px;}
+.ft-col a{display:block;font-size:13.5px;color:rgba(255,255,255,.65);margin-bottom:12px;transition:color var(--transition);font-weight:300;}
+.ft-col a:hover{color:rgba(255,255,255,.95);}
+.ft-offices-row{display:grid;grid-template-columns:1fr 1px 1fr;align-items:center;padding:40px 0;border-bottom:1px solid rgba(255,255,255,.08);}
+.ft-office-sep{height:56px;background:rgba(255,255,255,.1);}
+.ft-office-block{display:flex;align-items:center;justify-content:space-between;padding:0 48px;}
+.ft-office-block:first-child{padding-left:0;}
+.ft-office-block:last-child{padding-right:0;}
+.ft-office-city{font-size:9px;font-weight:600;letter-spacing:.28em;text-transform:uppercase;color:var(--accent);margin-bottom:10px;}
+.ft-office-addr{font-family:var(--font-serif);font-size:18px;font-weight:300;color:rgba(255,255,255,.88);line-height:1.35;}
+.ft-office-phone{font-size:13px;color:rgba(255,255,255,.58);margin-top:7px;font-weight:300;}
+.ft-office-link{font-size:9.5px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.42);display:flex;align-items:center;gap:7px;transition:color .25s ease;flex-shrink:0;}
+.ft-office-link svg{width:11px;height:11px;transition:transform .25s ease;}
+.ft-office-link:hover{color:var(--accent);}
+.ft-office-link:hover svg{transform:translateX(3px);}
+.ft-bottom{display:flex;justify-content:space-between;align-items:center;padding:20px 0;}
+.ft-copy{font-size:11.5px;color:rgba(255,255,255,.32);font-weight:300;}
+.ft-legal{display:flex;gap:28px;}
+.ft-legal a{font-size:11.5px;color:rgba(255,255,255,.42);transition:color var(--transition);font-weight:300;}
+.ft-legal a:hover{color:rgba(255,255,255,.8);}
+
+@media(max-width:1024px){
+  .journal-intro-grid,.feature-grid,.posts-grid,.journal-links-grid,.ft-top,.ft-nav-grid{grid-template-columns:1fr;}
+  .feature-card{grid-template-columns:1fr;}
+  .feature-image img{min-height:360px;}
+  .ft-offices-row{grid-template-columns:1fr;}
+  .ft-office-sep{display:none;}
+  .ft-office-block{padding:24px 0 !important;}
+}
+@media(max-width:900px){
+  .container{padding:0 24px;}
+  .header-inner{padding:18px 24px;}
+  #header.scrolled .header-inner{padding:14px 24px;}
+  .page-hero-content{padding:0 24px 56px 32px;}
+  .nav{display:none;}
+  .header-cta{display:none;}
+  .posts-head{flex-direction:column;align-items:flex-start;}
+}
+</style>
+</head>
+<body>
+
+<header id="header">
+  <div class="header-inner">
+    <a href="index.html" class="logo">
+      <img src="SMRS-Langlogo-transparent.png" alt="SCHNEIDER || MICK Rechtsanwälte">
+    </a>
+    <nav class="nav">
+      <div class="nav-item"><a class="nav-link" href="ueber-uns.html">Kanzlei</a></div>
+      <div class="nav-item">
+        <span class="nav-link">Rechtsanwälte
+          <svg class="chev" viewBox="0 0 10 10" fill="none"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+        </span>
+        <div class="dropdown">
+          <a href="team-dr-frederic-schneider.html">Dr. Frédéric Schneider</a>
+          <a href="team-dr-benedikt-mick.html">Dr. Benedikt Mick</a>
+          <a href="team-laura-leweke.html">Laura Leweke</a>
+          <a href="team-michael-eggers.html">Michael Eggers</a>
+          <a href="team-silvia-uschinski.html">Silvia Uschinski</a>
+          <a href="team-dr-sebastian-seel.html">Dr. Sebastian Seel</a>
+          <a href="team-laura-bessenbach.html">Laura Bessenbach</a>
+          <a href="team-nicola-bier.html">Nicola Bier</a>
+          <a href="team-hannah-hellmig.html">Hannah Hellmig</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <span class="nav-link">Schwerpunkte
+          <svg class="chev" viewBox="0 0 10 10" fill="none"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+        </span>
+        <div class="dropdown">
+          <a href="medienstrafrecht.html">Medienstrafrecht</a>
+          <a href="persoenlichkeitsstrafrecht.html">Persönlichkeitsrecht</a>
+        </div>
+      </div>
+      <div class="nav-item"><a class="nav-link" href="beitraege.html" style="color:var(--accent);">Beiträge</a></div>
+      <div class="nav-item"><a class="nav-link" href="kontakt.html">Kontakt</a></div>
+    </nav>
+    <a href="kontakt.html" class="header-cta">Beratungsgespräch</a>
+  </div>
+</header>
+
+<section class="page-hero">
+  <img class="page-hero-media" src="SMR-VORAB-C-15.jpg" alt="Beiträge und Publikationen von SCHNEIDER || MICK">
+  <div class="page-hero-overlay"></div>
+  <div class="page-hero-content">
+    <div class="page-hero-kicker">
+      <div class="page-hero-kicker-line"></div>
+      <span class="page-hero-kicker-text">Schneider || Mick - Journal</span>
+    </div>
+    <h1 class="page-hero-title">Beiträge & Publikationen</h1>
+    <p class="page-hero-sub">Analysen, Einordnungen und fachliche Beiträge zu Medienstrafrecht, Persönlichkeitsstrafrecht, digitaler Reputation und strafrechtlicher Krisenintervention.</p>
+    <div class="page-hero-bc">
+      <a href="index.html">Startseite</a>
+      <span>/</span>
+      <span style="color:rgba(255,255,255,.58);">Beiträge</span>
+    </div>
+  </div>
+</section>
+
+<section class="journal-intro">
+  <div class="container">
+    <div class="journal-intro-grid">
+      <div>
+        <div class="section-label">
+          <div class="section-label-line"></div>
+          <span class="section-label-text">Einordnung</span>
+        </div>
+        <h2 class="journal-intro-title">Fachliche Perspektiven zwischen Strafrecht, Öffentlichkeit und digitaler Dynamik.</h2>
+        <div class="journal-intro-copy">
+          <p>Unsere Beiträge bündeln praktische Erfahrung aus Verteidigung, Krisenintervention und strategischer Beratung. Im Mittelpunkt stehen Konstellationen, in denen strafrechtliche Fragen nicht isoliert auftreten, sondern mediale Wirkung, Plattformlogik und Reputationsschutz mitprägen.</p>
+          <p>Die Seite versammelt Analysen, Kurzbeiträge und Publikationshinweise zu den Themenfeldern, die unsere tägliche Arbeit prägen.</p>
+        </div>
+        <div class="journal-tags">
+          <span class="journal-tag">Medienstrafrecht</span>
+          <span class="journal-tag">Persönlichkeitsrecht</span>
+          <span class="journal-tag">Digitale Reputation</span>
+          <span class="journal-tag">Krisenstrategie</span>
+          <span class="journal-tag">Publikationen</span>
+        </div>
+      </div>
+      <div class="journal-side">
+        <span class="journal-side-label">Redaktioneller Fokus</span>
+        <p>Der Schwerpunkt liegt auf Themen, bei denen juristische Bewertung, zeitkritische Reaktion und kommunikative Folgen eng zusammenhängen. So entsteht ein Journal mit klarer strafrechtlicher Perspektive und unmittelbarem Praxisbezug.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="feature-section">
+  <div class="container">
+    <div class="feature-grid">
+      <article class="feature-card">
+        <div class="feature-image">
+          <img src="judge.jpg" alt="Ausgewählter Beitrag zum Medienstrafrecht">
+        </div>
+        <div class="feature-body">
+          <div class="post-topline">
+            <span class="post-cat">Medienstrafrecht</span>
+            <span class="post-type">Ausgewählter Beitrag</span>
+          </div>
+          <h2 class="feature-title">Rabaukenjäger und -richter</h2>
+          <p class="feature-excerpt">Eine Einordnung zum Umgang der Justiz mit medial aufgeladenen Konflikten, zur Strafbarkeit zugespitzter öffentlicher Kommunikation und zu den Grenzen strafrechtlicher Reaktion im Spannungsfeld von Meinungsfreiheit und Reputationsschutz.</p>
+          <div class="feature-meta">
+            <span>Analyse</span>
+            <span>Strafrecht & Öffentlichkeit</span>
+            <span>Schneider || Mick</span>
+          </div>
+        </div>
+      </article>
+      <aside class="feature-aside">
+        <div class="section-label">
+          <div class="section-label-line"></div>
+          <span class="section-label-text">Weiterlesen</span>
+        </div>
+        <div class="feature-aside-list">
+          <article class="feature-aside-item">
+            <span class="post-cat">Internetstrafrecht</span>
+            <h3>Sind Polizisten „digitale Analphabeten"?</h3>
+            <p>Eine kritische Auseinandersetzung mit technischer Ermittlungskompetenz, digitaler Beweisführung und den praktischen Grenzen staatlicher Reaktion.</p>
+          </article>
+          <article class="feature-aside-item">
+            <span class="post-cat">Fachliteratur</span>
+            <h3>Literatur: Medienstrafrecht</h3>
+            <p>Ein verdichteter Überblick über Standardwerke, Entwicklungslinien und Referenztexte eines noch jungen, aber hochrelevanten Rechtsgebiets.</p>
+          </article>
+          <article class="feature-aside-item">
+            <span class="post-cat">Persönlichkeitsstrafrecht</span>
+            <h3>Wenn private Inhalte öffentlich eskalieren</h3>
+            <p>Zur Koordination von Strafanzeige, Beweissicherung und Reputationsschutz bei heimlichen Aufnahmen, Doxxing und digitalem Nachstellen.</p>
+          </article>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="posts-section">
+  <div class="container">
+    <div class="posts-head">
+      <div>
+        <div class="section-label">
+          <div class="section-label-line"></div>
+          <span class="section-label-text">Archiv</span>
+        </div>
+        <h2>Weitere Beiträge im Überblick.</h2>
+      </div>
+      <p>Die Auswahl verbindet Fachbeiträge, kurze Einordnungen und praxisnahe Perspektiven aus unserer täglichen Arbeit an der Schnittstelle von Strafrecht, Medien und Persönlichkeitsrecht.</p>
+    </div>
+    <div class="posts-grid">
+      <article class="post-card">
+        <div class="post-card-image">
+          <img src="police.png" alt="Beitrag zum Internetstrafrecht">
+        </div>
+        <div class="post-card-body">
+          <div class="post-topline">
+            <span class="post-cat">Internetstrafrecht</span>
+            <span class="post-type">Kommentar</span>
+          </div>
+          <h3>Sind Polizisten „digitale Analphabeten"?</h3>
+          <p>Zur Frage, wie digitale Sachverhalte in Ermittlungsverfahren erfasst werden, wo praktische Defizite liegen und welche Folgen das für Beschuldigte und Betroffene hat.</p>
+          <div class="post-card-meta">
+            <span>Cybercrime</span>
+            <span>Ermittlungen</span>
+          </div>
+        </div>
+      </article>
+      <article class="post-card">
+        <div class="post-card-image">
+          <img src="t.png" alt="Beitrag zur Fachliteratur im Medienstrafrecht">
+        </div>
+        <div class="post-card-body">
+          <div class="post-topline">
+            <span class="post-cat">Fachliteratur</span>
+            <span class="post-type">Publikation</span>
+          </div>
+          <h3>Literatur: Medienstrafrecht</h3>
+          <p>Welche Werke Orientierung bieten, welche Linien sich in Rechtsprechung und Wissenschaft abzeichnen und warum das Rechtsgebiet weiter an Schärfe gewinnt.</p>
+          <div class="post-card-meta">
+            <span>Überblick</span>
+            <span>Rechtsprechung</span>
+          </div>
+        </div>
+      </article>
+      <article class="post-card">
+        <div class="post-card-image">
+          <img src="SMR-VORAB-C-18.jpg" alt="Beitrag zum Persönlichkeitsstrafrecht">
+        </div>
+        <div class="post-card-body">
+          <div class="post-topline">
+            <span class="post-cat">Persönlichkeitsstrafrecht</span>
+            <span class="post-type">Praxis</span>
+          </div>
+          <h3>Wenn private Inhalte öffentlich eskalieren</h3>
+          <p>Ein Beitrag zur schnellen Priorisierung bei heimlichen Aufnahmen, rufschädigenden Behauptungen, Plattformdruck und akuten Reputationslagen.</p>
+          <div class="post-card-meta">
+            <span>Privatsphäre</span>
+            <span>Krisenfall</span>
+          </div>
+        </div>
+      </article>
+      <article class="post-card">
+        <div class="post-card-image">
+          <img src="SMR-VORAB-M-8.jpg" alt="Beitrag zu Ermittlungsdruck und Veröffentlichung">
+        </div>
+        <div class="post-card-body">
+          <div class="post-topline">
+            <span class="post-cat">Krisenstrategie</span>
+            <span class="post-type">Einordnung</span>
+          </div>
+          <h3>Ermittlungsdruck, Veröffentlichung, Reaktionsfenster</h3>
+          <p>Warum die ersten Stunden in medial aufgeladenen Verfahren oft über Reichweite, Erzählung und spätere juristische Handlungsfreiheit mitentscheiden.</p>
+          <div class="post-card-meta">
+            <span>Timing</span>
+            <span>Strategie</span>
+          </div>
+        </div>
+      </article>
+      <article class="post-card">
+        <div class="post-card-image">
+          <img src="SMR-VORAB-M-9.jpg" alt="Beitrag zu digitaler Reputation">
+        </div>
+        <div class="post-card-body">
+          <div class="post-topline">
+            <span class="post-cat">Digitale Reputation</span>
+            <span class="post-type">Fokus</span>
+          </div>
+          <h3>Doxxing, Fake-Profile und Löschdruck</h3>
+          <p>Zur operativen Verbindung von Strafrecht, Plattformkommunikation und dokumentierter Beweissicherung bei digitaler Rufschädigung.</p>
+          <div class="post-card-meta">
+            <span>Online-Schutz</span>
+            <span>Dokumentation</span>
+          </div>
+        </div>
+      </article>
+      <article class="post-card">
+        <div class="post-card-image">
+          <img src="SMR-VORAB-C-16.jpg" alt="Beitrag zu öffentlicher Kommunikation und Strafrecht">
+        </div>
+        <div class="post-card-body">
+          <div class="post-topline">
+            <span class="post-cat">Öffentliche Kommunikation</span>
+            <span class="post-type">Analyse</span>
+          </div>
+          <h3>Zwischen Strafverfahren und Öffentlichkeit</h3>
+          <p>Wie kommunikative Zurückhaltung, juristische Präzision und diskrete Intervention zusammenspielen, wenn Verfahren öffentlich wahrgenommen werden.</p>
+          <div class="post-card-meta">
+            <span>Öffentlichkeit</span>
+            <span>Verteidigung</span>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="journal-links">
+  <div class="container">
+    <div class="journal-links-grid">
+      <a class="journal-link-card" href="medienstrafrecht.html">
+        <div>
+          <span class="post-cat">Schwerpunkt</span>
+          <h3>Medienstrafrecht</h3>
+          <p>Beiträge und Einordnungen zu Presse, Plattformen, redaktioneller Verantwortung und öffentlicher Eskalation.</p>
+        </div>
+        <span class="journal-link-cta">Zur Seite
+          <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+      </a>
+      <a class="journal-link-card" href="persoenlichkeitsstrafrecht.html">
+        <div>
+          <span class="post-cat">Schwerpunkt</span>
+          <h3>Persönlichkeitsstrafrecht</h3>
+          <p>Analysen zu Rufschutz, Bildrechten, Privatsphäre, digitaler Identität und strafrechtlicher Krisenintervention.</p>
+        </div>
+        <span class="journal-link-cta">Zur Seite
+          <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+      </a>
+      <a class="journal-link-card" href="kontakt.html">
+        <div>
+          <span class="post-cat">Kontakt</span>
+          <h3>Beratung anfragen</h3>
+          <p>Wenn ein aktueller Sachverhalt schnelle Einordnung erfordert, erreichen Sie uns vertraulich in Hamburg und Berlin.</p>
+        </div>
+        <span class="journal-link-cta">Kontakt
+          <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer id="footer">
+  <div class="ft-accent-bar"></div>
+  <div class="container">
+    <div class="ft-top">
+      <div class="ft-brand">
+        <a href="index.html" class="logo">
+          <img src="SMRS-Langlogo-transparent.png" alt="SCHNEIDER MICK Rechtsanwälte">
+        </a>
+        <p class="ft-tagline">Spezialisierte Strafverteidigung im Medienstrafrecht und Persönlichkeitsrecht. Bundesweit tätig. Hamburg & Berlin.</p>
+      </div>
+      <div class="ft-nav-grid">
+        <div class="ft-col">
+          <h4>Kanzlei</h4>
+          <a href="ueber-uns.html">Über uns</a>
+          <a href="index.html#team">Das Team</a>
+          <a href="index.html#rechtsgebiete">Rechtsgebiete</a>
+          <a href="kontakt.html">Kontakt</a>
+        </div>
+        <div class="ft-col">
+          <h4>Rechtsgebiete</h4>
+          <a href="medienstrafrecht.html">Medienstrafrecht</a>
+          <a href="medienstrafrecht.html">Pressestrafrecht</a>
+          <a href="medienstrafrecht.html">Internetstrafrecht</a>
+          <a href="medienstrafrecht.html">Rundfunk & Telemedien</a>
+        </div>
+        <div class="ft-col">
+          <h4>Schwerpunkte</h4>
+          <a href="persoenlichkeitsstrafrecht.html">Persönlichkeitsrecht</a>
+          <a href="medienstrafrecht.html">Medienstrafrecht</a>
+          <a href="beitraege.html">Beiträge & Publikationen</a>
+        </div>
+        <div class="ft-col">
+          <h4>Erreichbarkeit</h4>
+          <a href="#">Mo – Fr, 8:30 – 20:00 Uhr</a>
+          <a href="#">Notfall: 24 / 7</a>
+          <a href="kontakt.html#form">Nachricht senden</a>
+          <a href="kontakt.html">Termin vereinbaren</a>
+        </div>
+      </div>
+    </div>
+    <div class="ft-offices-row">
+      <div class="ft-office-block">
+        <div>
+          <div class="ft-office-city">Hamburg</div>
+          <div class="ft-office-addr">Holstenwall 10, 20355 Hamburg</div>
+          <div class="ft-office-phone">040 – 2286 2287</div>
+        </div>
+        <a href="https://maps.google.com/?q=Holstenwall+10,+20355+Hamburg" target="_blank" rel="noopener" class="ft-office-link">
+          Karte öffnen
+          <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+      <div class="ft-office-sep"></div>
+      <div class="ft-office-block">
+        <div>
+          <div class="ft-office-city">Berlin</div>
+          <div class="ft-office-addr">Fasanenstraße 72, 10719 Berlin</div>
+          <div class="ft-office-phone">030 – 120 88 380</div>
+        </div>
+        <a href="https://maps.google.com/?q=Fasanenstra%C3%9Fe+72,+10719+Berlin" target="_blank" rel="noopener" class="ft-office-link">
+          Karte öffnen
+          <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="ft-bottom">
+      <p class="ft-copy">© 2026 SCHNEIDER || MICK Rechtsanwälte Strafverteidiger PartmbB. Alle Rechte vorbehalten.</p>
+      <div class="ft-legal">
+        <a href="#">Impressum</a>
+        <a href="#">Datenschutz</a>
+        <a href="#">AGB</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const header = document.getElementById('header');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 80);
+  });
+</script>
+</body>
+</html>
